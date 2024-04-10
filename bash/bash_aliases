@@ -1,0 +1,42 @@
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# More ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias lla='ls -lA'
+
+# Debian Package Management
+alias apt='sudo aptitude'
+alias acs='aptitude search'
+alias agc='apt clean'
+alias agf='apt full-upgrade'
+alias agg='apt safe-upgrade'
+alias agi='apt install'
+alias agr='apt remove'
+alias agp='apt purge'
+alias agu='apt update'
+alias dpkgsize='dpkg-query -W --showformat="\${Installed-Size;10}\t\${Package}\n"|sort -k1,1n'
+
+function listdeinstall { dpkg -l|awk '/^rc/ {print $2}'; }
+function purgedeinstall { dpkg -l|awk '/^rc/ {print $2}'|sudo xargs dpkg -P; }
+
+# Safety aliases
+alias rm='rm -vI --preserve-root'
+alias chown='chown -v --preserve-root'
+alias chmod='chmod -v --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+# Miscellaneous
+alias myip="curl ifconfig.me"
+alias pss='ps -ef|grep -v grep|grep -i $1' #Search ps output
+alias ot='popd'
+alias to='pushd'
+alias o='xdg-open'
