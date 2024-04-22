@@ -9,6 +9,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # More ls aliases
+alias ls='ls --color=auto -h'
 alias ll='ls -l'
 alias la='ls -A'
 alias lla='ls -lA'
@@ -33,6 +34,7 @@ alias rm='rm -vI --preserve-root'
 alias chown='chown -v --preserve-root'
 alias chmod='chmod -v --preserve-root'
 alias chgrp='chgrp --preserve-root'
+alias cp='rsync -ah --info=progress'
 
 # Miscellaneous
 alias myip="curl ifconfig.me"
@@ -40,3 +42,10 @@ alias pss='ps -ef|grep -v grep|grep -i $1' #Search ps output
 alias ot='popd'
 alias to='pushd'
 alias o='xdg-open'
+alias weather='curl https://wttr.in?0QnF'
+alias forecast='curl https://wttr.in?2QnF'
+alias df='df -x tmpfs'
+
+# tmux aliases
+alias tmux_neofetch='bash -c "exec -a neofetch neofetch_loop"'
+alias tmux_weather='bash -c "exec -a weather weather_loop"'
