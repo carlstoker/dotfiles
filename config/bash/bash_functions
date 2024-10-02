@@ -1,0 +1,25 @@
+function colors() {
+    for i in {0..15}; do
+        for j in {0..15}; do
+            color=$((i * 16 + j))
+            printf "\e[48;5;${color}m%4d\e[0m" $color
+        done
+        echo
+    done
+}
+
+function neofetch_loop() {
+    clear
+    while true; do
+        bash -c 'exec -a "neofetch" neofetch | head -n 34'
+        bash -c 'exec -a "neofetch" sleep 60'
+    done
+}
+
+function weather_loop() {
+    clear
+    while true; do
+        bash -c 'exec -a "weather" curl https://wttr.in?0QnF'
+        bash -c 'exec -a "weather" sleep 600'
+    done
+}
