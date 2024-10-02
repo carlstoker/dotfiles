@@ -42,9 +42,12 @@ alias pss='ps -ef|grep -v grep|grep -i $1' #Search ps output
 alias ot='popd'
 alias to='pushd'
 alias o='xdg-open'
+alias df='df -x tmpfs'
+
+# Weather
 alias weather='curl https://wttr.in?0QnF'
 alias forecast='curl https://wttr.in?2QnF'
-alias df='df -x tmpfs'
+alias doppler='mpv https://radar.weather.gov/ridge/standard/KBOX_loop.gif'
 
 # tmux aliases
 alias tmux_neofetch='bash -c "exec -a neofetch neofetch_loop"'
